@@ -1,29 +1,47 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="LunchCheck">
   <head>
     <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      .green {
+        color: green;
+        border-color: green;
+      }
+      .red {
+        color: red;
+        border-color: red;
+      }
+
+      .border-green {
+        border-color: green;
+      }
+      .border-red {
+        border-color: red;
+      }
     </style>
   </head>
 <body>
-   <div class="container">
+   <div class="container" ng-controller="LunchCheckController">
      <h1>Lunch Checker</h1>
 
          <div class="form-group">
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
+             class="form-control" ng-model ="menuItems"  ng-class="{'border-green':3<noOfLunchItems<=3, 'border-red':noOfLunchItems==0}">
          </div>
          <div class="form-group">
-             <button class="btn btn-default">Check If Too Much</button>
+             <button class="btn btn-default" ng-click="checkTooMuch()">Check If Too Much</button>
          </div>
-         <div class="form-group message">
-           <!-- Your message can go here. -->
+         <div class="form-group message" ng-class="{'green':3<noOfLunchItems<=3, 'red':noOfLunchItems==0}">
+          {{msg}}
          </div>
    </div>
+
+  <script src="//code.angularjs.org/1.5.8/angular.min.js"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>
