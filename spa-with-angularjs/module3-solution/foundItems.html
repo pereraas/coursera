@@ -1,0 +1,12 @@
+<ul>
+  <li ng-repeat="item in foundItemsDirCtrl.items" style="list-style: none;margin-bottom:10px">
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+          {{item.name + ", " + item.short_name + ", " + item.description}}
+        </div>
+        <div class="col-xs-6 col-md-4">
+          <button class="btn btn-warning btn-sm" ng-click="foundItemsDirCtrl.onRemove({index: $index});">Don't want this one!</button>
+        </div>
+    </div>
+  </li>
+</ul>
