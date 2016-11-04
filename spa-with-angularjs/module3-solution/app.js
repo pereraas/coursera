@@ -31,10 +31,13 @@
     narrowItCtrl.searchTerm = '';
     narrowItCtrl.errorMsg = null;
     narrowItCtrl.found = null;
+    narrowItCtrl.showSpinner = false;
 
     narrowItCtrl.narrowItDown = function(){
+
         clearView();
         displayItems();
+
     }
 
     narrowItCtrl.removeItem = function(index){
@@ -48,6 +51,7 @@
 
     function displayItems(){
       if(narrowItCtrl.searchTerm){
+        narrowItCtrl.showSpinner = true;
         MenuSearchService.getMatchedMenuItems(narrowItCtrl.searchTerm)
         .then(
           function(response){
@@ -55,6 +59,7 @@
             if(narrowItCtrl.found.length === 0){
               narrowItCtrl.errorMsg = "Nothing found";
             }
+            narrowItCtrl.showSpinner = false;
           }
         );
       }else{

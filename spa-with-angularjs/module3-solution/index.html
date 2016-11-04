@@ -16,10 +16,13 @@
       <input type="text" placeholder="search term" class="form-control" ng-model="narrowItCtrl.searchTerm">
     </div>
     <div class="form-group narrow-button">
-      <button class="btn btn-primary" ng-click="narrowItCtrl.narrowItDown();">Narrow It Down For Me!</button>
+      <button class="btn btn-primary" ng-click="narrowItCtrl.narrowItDown();">
+         <span ng-show="narrowItCtrl.showSpinner"><i class="glyphicon glyphicon-refresh spinning"></i></span>
+        Narrow It Down For Me!
+      </button>
     </div>
     <div style="clear: both;"></div>
-
+    
     <div class="alert alert-danger" ng-if="narrowItCtrl.errorMsg">{{narrowItCtrl.errorMsg}}</div>
 
     <div id="grid">
