@@ -17,9 +17,7 @@
       controller: FoundItemsDirectiveCtrl,
       controllerAs: 'foundItemsDirCtrl',
       bindToController: true
-
     }
-
     return ddo;
   }
 
@@ -35,24 +33,33 @@
     narrowItCtrl.found = null;
 
     narrowItCtrl.narrowItDown = function(){
-        narrowItCtrl.errorMsg = null;
-          if(narrowItCtrl.searchTerm){
-            MenuSearchService.getMatchedMenuItems(narrowItCtrl.searchTerm)
-            .then(
-              function(response){
-                narrowItCtrl.found = response;
-                if(narrowItCtrl.found.length === 0){
-                  narrowItCtrl.errorMsg = "Nothing found";
-                }
-              }
-            );
-          }else{
-            narrowItCtrl.errorMsg = "Nothing found";
-          }
+        clearView();
+        displayItems();
     }
 
     narrowItCtrl.removeItem = function(index){
       MenuSearchService.removeItem(index);
+    }
+
+    function clearView(){
+      narrowItCtrl.errorMsg = null;
+      narrowItCtrl.found = null;
+    }
+
+    function displayItems(){
+      if(narrowItCtrl.searchTerm){
+        MenuSearchService.getMatchedMenuItems(narrowItCtrl.searchTerm)
+        .then(
+          function(response){
+            narrowItCtrl.found = response;
+            if(narrowItCtrl.found.length === 0){
+              narrowItCtrl.errorMsg = "Nothing found";
+            }
+          }
+        );
+      }else{
+        narrowItCtrl.errorMsg = "Nothing found";
+      }
     }
   }
 
