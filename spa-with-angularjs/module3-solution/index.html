@@ -18,11 +18,11 @@
     <div class="form-group narrow-button">
       <button class="btn btn-primary" ng-click="narrowItCtrl.narrowItDown();">
          <span ng-show="narrowItCtrl.showSpinner"><i class="glyphicon glyphicon-refresh spinning"></i></span>
-        Narrow It Down For Me!
+        {{narrowItCtrl.searchBtnText}}
       </button>
     </div>
     <div style="clear: both;"></div>
-    
+
     <div class="alert alert-danger" ng-if="narrowItCtrl.errorMsg">{{narrowItCtrl.errorMsg}}</div>
 
     <div id="grid">

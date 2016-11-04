@@ -33,11 +33,12 @@
     narrowItCtrl.found = null;
     narrowItCtrl.showSpinner = false;
 
-    narrowItCtrl.narrowItDown = function(){
+    var defaultSearchBtnText = "Narrow It Down For Me!";
+    narrowItCtrl.searchBtnText =  defaultSearchBtnText;
 
+    narrowItCtrl.narrowItDown = function(){
         clearView();
         displayItems();
-
     }
 
     narrowItCtrl.removeItem = function(index){
@@ -52,6 +53,7 @@
     function displayItems(){
       if(narrowItCtrl.searchTerm){
         narrowItCtrl.showSpinner = true;
+        narrowItCtrl.searchBtnText = "Searching..."
         MenuSearchService.getMatchedMenuItems(narrowItCtrl.searchTerm)
         .then(
           function(response){
@@ -60,6 +62,7 @@
               narrowItCtrl.errorMsg = "Nothing found";
             }
             narrowItCtrl.showSpinner = false;
+            narrowItCtrl.searchBtnText =  defaultSearchBtnText;
           }
         );
       }else{
