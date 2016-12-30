@@ -1,0 +1,7 @@
+<div class="col-md-12  text-center gallery-trigger">
+    <ul>
+      <li ng-repeat="category in $ctrl.categories">
+        <a ui-sref="categories.itemDetail({shortName: category.short_name})" class="filter" data-filter="all">{{ category.name }}</a>
+      </li>
+    </ul>
+</div>

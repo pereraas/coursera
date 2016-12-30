@@ -1,0 +1,10 @@
+<div class="input-group col-md-3 col-centered" >
+      <input type="text" ng-model="searchCtrl.searchTerm" class="search" placeholder="search"  style="width:100%; height:33.5px; padding-left:7px">
+      <span class="input-group-btn">
+        <a class="btn btn-success yellow-btn" ui-sref="home.search({searchTerm: searchCtrl.searchTerm})"><span class="glyphicon glyphicon-search"></span></a>
+      </span>
+</div>
+
+<div class="col-md-3 col-centered text-center" style="margin-top:5em">
+  <loading-spinner></loading-spinner>
+</div>

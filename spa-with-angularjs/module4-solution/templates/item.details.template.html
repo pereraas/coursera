@@ -1,0 +1,13 @@
+<div id="grid">
+  <ul>
+    <li ng-repeat="item in $ctrl.items" style="list-style: none;margin-bottom:10px">
+      <div class="mix category-1 menu-restaurant" data-myorder="2">
+          <span class="clearfix">
+          <span class="menu-title">{{item.name}}</span>
+          <span class="menu-price">${{item.price_large}}</span>
+        </span>
+        <span class="menu-subtitle">{{item.description}}</span>
+      </div>
+    </li>
+  </ul>
+</div>
